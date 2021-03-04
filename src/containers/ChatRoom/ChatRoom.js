@@ -31,7 +31,11 @@ const ChatRoom = ({ userName }) => {
       userName: socketRef.current.userName,
     });
 
+<<<<<<< HEAD
     // TEST
+=======
+    // coucu
+>>>>>>> test
 
     socketRef.current.on("newUser", (data) => {
       socketRef.current.users.push({
