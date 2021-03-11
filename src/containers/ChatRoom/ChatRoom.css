@@ -1,0 +1,243 @@
+:root {
+  --independence: #5d576a;
+  --light-independence: rgb(93, 87, 106, 0.5);
+  --xtra-light-independence: rgb(93, 87, 106, 0.2);
+  --xxtra-light-independence: rgb(93, 87, 106, 0.1);
+  --brick-pink: #f8567b;
+  --light-brick-pink: #f785a0;
+  --xtra-light-brick-pink: #fadfe5;
+}
+
+.chatRoom {
+  display: flex;
+}
+
+.chatRoom .users-col {
+  width: 30%;
+  height: 94vh;
+  margin: 3vh 0em 3vh 3em;
+  padding-left: 2em;
+}
+
+.go-back {
+  border-bottom: 0.2em var(--xtra-light-independence) solid;
+  display: flex;
+  align-items: center;
+  height: 8em;
+}
+
+.go-back > .btn,
+.send-message .btn {
+  background-color: var(--xtra-light-independence);
+  height: 4em;
+  width: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+  margin-right: 2em;
+  cursor: pointer;
+}
+
+.send-message .btn {
+  background-color: var(--brick-pink);
+  margin: 0 1em;
+}
+
+.chatRoom .fa-angle-left,
+.chatRoom .fa-angle-right {
+  border-radius: 1em;
+  font-size: 3em;
+}
+
+.chatRoom .fa-angle-left {
+  color: var(--independence);
+}
+
+.chatRoom .fa-angle-right {
+  color: white;
+}
+
+.go-back > p {
+  font-size: 2em;
+  color: var(--independence);
+  font-weight: 600;
+}
+
+.users-list {
+  height: calc(100% - 8.2em);
+}
+
+.users-list-text-1 {
+  padding-top: 3em;
+  min-height: 14em;
+  box-sizing: border-box;
+}
+
+.users-list-text-1 > p:first-child {
+  font-size: 2em;
+}
+
+.users-list-text-1 > p:first-child > span {
+  font-weight: 600;
+}
+
+.users-list-text-1 > p:nth-child(2) {
+  font-size: 2.4em;
+  padding-top: 0.6em;
+  font-weight: 800;
+}
+
+.users-list-text-1 > p {
+  text-align: center;
+}
+
+.users-list-text-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 14em);
+}
+
+.users-list-text-2 > p {
+  font-size: 1.6em;
+  margin-bottom: 1.4em;
+  font-weight: 600;
+  color: var(--independence);
+}
+
+.users-list .scrolling-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.users-list .scrolling-list::-webkit-scrollbar {
+  display: none;
+}
+
+.single-user {
+  width: 70%;
+  font-size: 1.6em;
+  padding: 0.6em 1em;
+  margin-bottom: 1em;
+  border-radius: 0.4em;
+  font-weight: 600;
+  background-color: var(--xtra-light-brick-pink);
+}
+
+.single-user p {
+  text-align: center;
+}
+
+.chatRoom .chat-col {
+  width: 70%;
+  height: 94vh;
+  margin: 3vh 3em;
+  border-radius: 1em;
+  background-color: var(--xtra-light-independence);
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  height: calc(100% - 9em);
+  box-sizing: border-box;
+  padding: 2em 0;
+  overflow: hidden;
+}
+
+.send-message {
+  background-color: white;
+  height: 5em;
+  margin: 2em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+
+.send-message input {
+  flex: 1;
+  border-radius: 1em;
+  padding: 0.6em 1em;
+  font-size: 1.6em;
+}
+
+.message-bubble,
+.message-bubble-owner {
+  font-size: 1.4em;
+  margin: 0 1em 2em 1em;
+  display: flex;
+}
+
+.message-bubble-owner {
+  justify-content: flex-end;
+}
+
+.message-bubble > div,
+.message-bubble-owner > div {
+  display: flex;
+}
+
+.message-bubble > div {
+  margin-right: 8em;
+}
+
+.message-bubble-owner > div {
+  flex-direction: row-reverse;
+  margin-left: 8em;
+}
+
+.message-bubble .sender-infos,
+.message-bubble-owner .sender-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-bubble .sender-infos {
+  margin-right: 1em;
+}
+
+.message-bubble-owner .sender-infos {
+  margin-left: 1em;
+}
+
+.message-bubble .sender-infos > p:first-child,
+.message-bubble-owner .sender-infos > p:first-child {
+  font-weight: 600;
+  color: var(--independence);
+}
+
+.message-bubble .sender-infos > p:last-child,
+.message-bubble-owner .sender-infos > p:last-child {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--independence);
+  padding-top: 0.5em;
+}
+
+.message-bubble .msg,
+.message-bubble-owner .msg {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  padding: 0.6em;
+}
+
+.message-bubble-owner .msg {
+  border-bottom-right-radius: 0em;
+  background-color: var(--light-brick-pink);
+  box-shadow: 3px 3px 3px 0.2px var(--light-independence);
+}
+
+.message-bubble .msg {
+  border-bottom-left-radius: 0em;
+  background-color: white;
+  box-shadow: 4px 4px 4px 0.2px var(--light-independence);
+}

@@ -1,0 +1,15 @@
+:root {
+  --independence: #5d576a;
+  --light-independence: rgb(93, 87, 106, 0.5);
+  --brick-pink: #f8567b;
+  --cornsilk: #fefae2;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+input {
+  outline: none;
+  border: none;
+}

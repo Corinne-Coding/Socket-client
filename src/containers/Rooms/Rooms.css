@@ -1,0 +1,169 @@
+:root {
+  --independence: #5d576a;
+  --light-independence: rgb(93, 87, 106, 0.5);
+  --brick-pink: #f8567b;
+  --light-brick-pink: #f785a0;
+}
+
+.rooms {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 30vh;
+}
+
+.scrolling-menu-1,
+.scrolling-menu-2 {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  font-weight: 600;
+  padding: 1em;
+  border: var(--independence) solid 3px;
+  border-radius: 1em;
+}
+
+.scrolling-menu-1 > div:first-child,
+.scrolling-menu-2 > div:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scrolling-menu-1 {
+  margin-right: 2em;
+}
+
+.scrolling-menu-1 > div > i,
+.scrolling-menu-2 > div > i {
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+.scrolling-menu-1 > div:nth-child(2),
+.scrolling-menu-2 > div:nth-child(2) {
+  margin-top: 1em;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-list > div {
+  padding: 0.6em;
+  margin: 0.4em 0;
+}
+
+.menu-list > div:hover {
+  color: var(--brick-pink);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.display {
+  display: flex;
+}
+
+.rooms form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.rooms-input {
+  padding: 0.4em 0;
+  width: 80%;
+  font-size: 0.8em;
+  color: var(--independence);
+  font-weight: 600;
+  border-bottom: var(--brick-pink) solid 2px;
+  margin: 1em 0;
+  font-family: inherit;
+}
+
+.rooms-input::placeholder {
+  color: var(--light-independence);
+  font-family: inherit;
+}
+
+.selected {
+  color: var(--brick-pink);
+}
+
+.rooms .link {
+  text-decoration: none;
+}
+
+.circle-btn {
+  width: 3em;
+  height: 3em;
+  margin: 0.5em 0 0 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--independence);
+  font-weight: 600;
+  font-size: 2em;
+  background-color: var(--light-independence);
+  cursor: pointer;
+}
+
+.pulse {
+  color: #fff;
+  background-image: radial-gradient(var(--brick-pink), var(--light-brick-pink));
+  box-shadow: 0 0 0 0 var(--brick-pink);
+  animation: pulsingCircle 1.8s infinite;
+}
+
+@keyframes pulsingCircle {
+  to {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.01);
+  }
+}
+
+@media (max-width: 1024px) {
+  .scrolling-menu-1,
+  .scrolling-menu-2 {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .rooms {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .scrolling-menu-1,
+  .scrolling-menu-2 {
+    width: 50vw;
+    font-size: 1.4em;
+    margin-top: 5vh;
+  }
+  .scrolling-menu-1 {
+    margin-right: 0em;
+  }
+  .circle-btn {
+    margin: 0 auto;
+    margin: 2em 0 0 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .rooms {
+    padding-top: 20vh;
+  }
+  .scrolling-menu-1,
+  .scrolling-menu-2 {
+    width: 70vw;
+  }
+}
