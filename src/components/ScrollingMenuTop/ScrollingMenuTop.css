@@ -1,0 +1,12 @@
+.scrolling-menu-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scrolling-menu-top > i,
+.scrolling-menu-top > i {
+  font-size: 1.6em;
+  cursor: pointer;
+}

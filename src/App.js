@@ -8,20 +8,26 @@ import ChatRoom from "./containers/ChatRoom/ChatRoom";
 
 function App() {
   const [userName, setUserName] = useState("");
+  const [color, setColor] = useState("pink");
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home userName={userName} setUserName={setUserName} />
+          <Home
+            userName={userName}
+            setUserName={setUserName}
+            color={color}
+            setColor={setColor}
+          />
         </Route>
 
         <Route exact path="/rooms">
-          <Rooms userName={userName} />
+          <Rooms userName={userName} color={color} />
         </Route>
 
         <Route exact path="/:roomId">
-          <ChatRoom userName={userName} />
+          <ChatRoom userName={userName} color={color} />
         </Route>
       </Switch>
     </Router>

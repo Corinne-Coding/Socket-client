@@ -1,24 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import "./ChatRoom.css";
 
-const ChatRoom = ({ userName }) => {
+// Components
+import GoBackButton from "../../components/GoBackButton/GoBackButton";
+
+const ChatRoom = ({ userName, color }) => {
   // console.log("Username in Chatroom =>", userName);
   const { roomId } = useParams();
-  let history = useHistory();
   const socketRef = useRef();
 
   const [messageToSend, setMessageToSend] = useState("");
   const [allMessages, setAllMessages] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
-  const [newConnection, setNewConnection] = useState(null);
 
   useEffect(() => {
     // Connection to WebSocket
     socketRef.current = socketIOClient(
-      "https://b62991b2d2e1.ngrok.io" || "http://localhost:4000",
+      "https://e9ec6458e634.ngrok.io" || "http://localhost:4000",
       {
         query: {
           roomId,
@@ -34,14 +35,19 @@ const ChatRoom = ({ userName }) => {
 
     // Receive new connection information
     socketRef.current.on("userConnection", (data) => {
-      // A FAIRE
-      console.log(data);
-      setNewConnection(data.message);
+      // console.log(data);
+      setAllMessages((allMessages) => [
+        ...allMessages,
+        {
+          ...allMessages,
+          newConnection: data.newConnection,
+        },
+      ]);
     });
 
     // Receive message
     socketRef.current.on("newChatMessage", (data) => {
-      console.log(data);
+      // console.log(data);
       setAllMessages((allMessages) => [
         ...allMessages,
         {
@@ -83,22 +89,12 @@ const ChatRoom = ({ userName }) => {
   };
 
   return (
-    <div className="chatRoom">
-      <div className="users-col">
-        <div className="go-back">
-          <div
-            className="btn"
-            onClick={() => {
-              history.push("/rooms");
-            }}
-          >
-            <i className="fas fa-angle-left"></i>
-          </div>
-          <p>Rooms</p>
-        </div>
+    <div className="chat-room">
+      <div>
+        <GoBackButton text="Rooms" page="/rooms" />
 
-        <div className="users-list">
-          <div className="users-list-text-1">
+        <div className="informations">
+          <div className="informations-room">
             <p>
               <span>{userName ? userName : "Unknown"}</span>
               <em>, you are in room</em>
@@ -106,12 +102,12 @@ const ChatRoom = ({ userName }) => {
             <p>{roomId}</p>
           </div>
 
-          <div className="users-list-text-2">
+          <div className="informations-users">
             <p>Users connected</p>
             <div className="scrolling-list">
               {allUsers.map((item, index) => {
                 return (
-                  <div className="single-user" key={index}>
+                  <div className={"single-user bgc-light-" + color} key={index}>
                     <p>{item.userName}</p>
                   </div>
                 );
@@ -125,44 +121,55 @@ const ChatRoom = ({ userName }) => {
         <div className="messages">
           {allMessages.length > 0 &&
             allMessages.map((item, index) => {
-              return (
-                <div
-                  className={
-                    item.userId === socketRef.current.id
-                      ? "message-bubble-owner"
-                      : "message-bubble"
-                  }
-                  key={index}
-                >
-                  <div>
-                    <div className="sender-infos">
-                      <p>
-                        {item.userName === userName
-                          ? "You"
-                          : item.userName
-                          ? item.userName
-                          : "Unknown"}
-                      </p>
-                      {/* <p>{displayDate(item.date)}</p> */}
-                      <p>{displayTime(item.date)}</p>
-                    </div>
+              console.log(item);
+              if (item.message) {
+                return (
+                  <div
+                    className={
+                      item.userId === socketRef.current.id
+                        ? "message-bubble-owner"
+                        : "message-bubble"
+                    }
+                    key={index}
+                  >
+                    <div>
+                      <div className="sender-infos">
+                        <p>
+                          {item.userName === userName
+                            ? "You"
+                            : item.userName
+                            ? item.userName
+                            : "Unknown"}
+                        </p>
+                        <p>{displayTime(item.date)}</p>
+                      </div>
 
-                    <div className="msg">
-                      <p> {item.message}</p>
+                      <div className={"msg bgc-" + color}>
+                        <p>{item.message}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
+                );
+              } else {
+                return (
+                  <p key={index} className="new-connection">
+                    {item.newConnection}
+                  </p>
+                );
+              }
             })}
         </div>
-        <form className="send-message" onSubmit={sendMessage}>
+        <form onSubmit={sendMessage}>
           <input
             onChange={(event) => {
               setMessageToSend(event.target.value);
             }}
             value={messageToSend}
           />
-          <div onClick={sendMessage} className="btn">
+          <div
+            onClick={sendMessage}
+            className={"btn bgc-dark-" + color + " hover-bgc-" + color}
+          >
             <i className="fas fa-angle-right"></i>
           </div>
         </form>

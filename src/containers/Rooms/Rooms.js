@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 import "./Rooms.css";
 
-const Rooms = () => {
+// Components
+import GoBackButton from "../../components/GoBackButton/GoBackButton";
+import ScrollingMenuTop from "../../components/ScrollingMenuTop/ScrollingMenuTop";
+
+const Rooms = ({ color }) => {
+  console.log(color);
   const [displayScrollingMenu1, setDisplayScrollingMenu1] = useState(false);
   const [displayScrollingMenu2, setDisplayScrollingMenu2] = useState(false);
   const [roomName, setRoomName] = useState("");
@@ -23,86 +28,80 @@ const Rooms = () => {
 
   return (
     <div className="rooms">
-      <div className="scrolling-menu-1">
-        <div>
-          <p>Select a room</p>
-          <i
-            className={
-              !displayScrollingMenu1
-                ? "fas fa-chevron-circle-down"
-                : "fas fa-chevron-circle-up"
-            }
-            onClick={() => {
-              setDisplayScrollingMenu1(!displayScrollingMenu1);
-              if (displayScrollingMenu2) {
-                setDisplayScrollingMenu2(false);
-              }
-            }}
-          ></i>
-        </div>
-        <div
-          className={
-            !displayScrollingMenu1 ? "menu-list hidden" : "menu-list display"
-          }
-        >
-          {allRooms.map((item, index) => {
-            return (
-              <div
-                className={selectedRoom === index ? "selected" : undefined}
-                key={index}
-                onClick={() => {
-                  setSelectedRoom(index);
-                  setRoomName("");
-                  setRoomToNavigate(item.id);
-                }}
-              >
-                {item.id}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <GoBackButton text="Home" page="/" />
 
-      <div className="scrolling-menu-2">
-        <div>
-          <p>Create a room</p>
-          <i
-            className={
-              !displayScrollingMenu2
-                ? "fas fa-chevron-circle-down"
-                : "fas fa-chevron-circle-up"
-            }
-            onClick={() => {
-              setDisplayScrollingMenu2(!displayScrollingMenu2);
-              if (displayScrollingMenu1) {
-                setDisplayScrollingMenu1(false);
-              }
-            }}
-          ></i>
-        </div>
-        <div
-          className={
-            !displayScrollingMenu2 ? "menu-list hidden" : "menu-list display"
-          }
-        >
-          <form>
-            <input
-              className="rooms-input"
-              type="text"
-              placeholder="Enter a room name"
-              value={roomName}
-              maxLength={15}
-              onChange={handleRoomNameChange}
-            />
-          </form>
-        </div>
-      </div>
+      <div>
+        <div className="scrolling-menu-1">
+          <ScrollingMenuTop
+            variable={displayScrollingMenu1}
+            variableBis={displayScrollingMenu2}
+            setFunction={setDisplayScrollingMenu1}
+            setFunctionBis={setDisplayScrollingMenu2}
+          />
 
-      <Link to={`/${roomToNavigate}`} className="link">
-        <div className={roomToNavigate ? "circle-btn pulse" : "circle-btn"}>
-          <i className="fas fa-sign-in-alt"></i>
+          <div
+            className={
+              !displayScrollingMenu1 ? "menu-list hidden" : "menu-list display"
+            }
+          >
+            {allRooms.map((item, index) => {
+              return (
+                <p
+                  className={
+                    selectedRoom === index
+                      ? "selected-dark" + color + " color-dark-" + color
+                      : "selected-dark" + color
+                  }
+                  key={index}
+                  onClick={() => {
+                    setSelectedRoom(index);
+                    setRoomName("");
+                    setRoomToNavigate(item.id);
+                  }}
+                >
+                  {item.id}
+                </p>
+              );
+            })}
+          </div>
         </div>
-      </Link>
+
+        <div className="scrolling-menu-2">
+          <ScrollingMenuTop
+            variable={displayScrollingMenu2}
+            variableBis={displayScrollingMenu1}
+            setFunction={setDisplayScrollingMenu2}
+            setFunctionBis={setDisplayScrollingMenu1}
+          />
+
+          <div
+            className={
+              !displayScrollingMenu2 ? "menu-list hidden" : "menu-list display"
+            }
+          >
+            <form>
+              <input
+                className={"border-bottom-" + color}
+                type="text"
+                placeholder="Enter a room name"
+                value={roomName}
+                maxLength={15}
+                onChange={handleRoomNameChange}
+              />
+            </form>
+          </div>
+        </div>
+
+        <Link to={`/${roomToNavigate}`} className="link">
+          <div
+            className={
+              roomToNavigate ? "circle-btn pulse pulse-" + color : "circle-btn"
+            }
+          >
+            <i className="fas fa-sign-in-alt"></i>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,38 @@
 :root {
+  /* Common grey */
   --independence: #5d576a;
   --light-independence: rgb(93, 87, 106, 0.5);
-  --brick-pink: #f8567b;
-  --cornsilk: #fefae2;
+  --extra-light-independence: rgb(93, 87, 106, 0.2);
+
+  /* Pink */
+  --dark-brick-pink: #f8567b;
+  --brick-pink: #f785a0;
+  --light-brick-pink: #fadfe5;
+
+  /* Green */
+  --dark-ocean-green: #155737;
+  --ocean-green: #72ba9b;
+  --light-ocean-green: #d5f2e3;
+
+  /* Blue */
+  --dark-blue-jeans: #38408d;
+  --blue-jeans: #34a1fd;
+  --light-blue-jeans: #b2d7f5;
+
+  /* Purple */
+  --dark-lavender: #6b45a1;
+  --lavender: #a881dd;
+  --light-lavender: #c7bcd6;
+
+  /* Red */
+  --dark-apple-red: #a32334;
+  --apple-red: #ff0102;
+  --light-apple-red: #fdaaaa;
+
+  /* Yellow */
+  --dark-mikado-yellow: #f7a709;
+  --mikado-yellow: #ffc600;
+  --light-mikado-yellow: #ffefb7;
 }
 
 body {
@@ -12,4 +42,218 @@ body {
 input {
   outline: none;
   border: none;
+}
+
+/* ---------------- */
+/* Colors */
+/* ---------------- */
+
+/* Pink */
+.bgc-pink {
+  background-color: var(--brick-pink);
+}
+.color-pink {
+  color: var(--brick-pink);
+}
+.hover-bgc-pink:hover {
+  background-color: var(--brick-pink);
+}
+.border-bottom-pink {
+  border-bottom-color: var(--brick-pink);
+}
+
+/* Blue */
+.bgc-blue {
+  background-color: var(--blue-jeans);
+}
+.color-blue {
+  color: var(--blue-jeans);
+}
+.hover-bgc-blue:hover {
+  background-color: var(--blue-jeans);
+}
+.border-bottom-blue {
+  border-bottom-color: var(--blue-jeans);
+}
+
+/* Green */
+.bgc-green {
+  background-color: var(--ocean-green);
+}
+.color-green {
+  color: var(--ocean-green);
+}
+.hover-bgc-green:hover {
+  background-color: var(--ocean-green);
+}
+.border-bottom-green {
+  border-bottom-color: var(--ocean-green);
+}
+
+/* Purple */
+.bgc-purple {
+  background-color: var(--lavender);
+}
+.color-purple {
+  color: var(--lavender);
+}
+.hover-bgc-purple:hover {
+  background-color: var(--lavender);
+}
+.border-bottom-purple {
+  border-bottom-color: var(--lavender);
+}
+
+/* Red */
+.bgc-red {
+  background-color: var(--apple-red);
+}
+.color-red {
+  color: var(--apple-red);
+}
+.hover-bgc-red:hover {
+  background-color: var(--apple-red);
+}
+.border-bottom-red {
+  border-bottom-color: var(--apple-red);
+}
+
+/* Yellow */
+.bgc-yellow {
+  background-color: var(--mikado-yellow);
+}
+.color-yellow {
+  color: var(--mikado-yellow);
+}
+.hover-bgc-yellow:hover {
+  background-color: var(--mikado-yellow);
+}
+.border-bottom-yellow {
+  border-bottom-color: var(--mikado-yellow);
+}
+
+/* Dark Pink */
+.bgc-dark-pink {
+  background-color: var(--dark-brick-pink);
+}
+.color-dark-pink {
+  color: var(--dark-brick-pink);
+}
+.pulse-pink {
+  background-image: radial-gradient(var(--dark-brick-pink), var(--brick-pink));
+  box-shadow: 0 0 0 0 var(--dark-brick-pink);
+}
+.selected-dark-pink:hover {
+  color: var(--dark-brick-pink);
+}
+
+/* Dark Blue */
+.bgc-dark-blue {
+  background-color: var(--dark-blue-jeans);
+}
+.color-dark-blue {
+  color: var(--dark-blue-jeans);
+}
+.pulse-blue {
+  background-image: radial-gradient(var(--dark-blue-jeans), var(--blue-jeans));
+  box-shadow: 0 0 0 0 var(--dark-blue-jeans);
+}
+.selected-dark-blue:hover {
+  color: var(--dark-blue-jeans);
+}
+
+/* Dark Green */
+.bgc-dark-green {
+  background-color: var(--dark-ocean-green);
+}
+.color-dark-green {
+  color: var(--dark-ocean-green);
+}
+.pulse-green {
+  background-image: radial-gradient(
+    var(--dark-ocean-green),
+    var(--ocean-green)
+  );
+  box-shadow: 0 0 0 0 var(--dark-ocean-green);
+}
+.selected-dark-green:hover {
+  color: var(--dark-ocean-green);
+}
+
+/* Dark Purple */
+.bgc-dark-purple {
+  background-color: var(--dark-lavender);
+}
+.color-dark-purple {
+  color: var(--dark-lavender);
+}
+.pulse-purple {
+  background-image: radial-gradient(var(--dark-lavender), var(--lavender));
+  box-shadow: 0 0 0 0 var(--dark-lavender);
+}
+.selected-dark-purple:hover {
+  color: var(--dark-lavender);
+}
+
+/* Dark Red */
+.bgc-dark-red {
+  background-color: var(--dark-apple-red);
+}
+.color-dark-red {
+  color: var(--dark-apple-red);
+}
+.pulse-red {
+  background-image: radial-gradient(var(--dark-apple-red), var(--apple-red));
+  box-shadow: 0 0 0 0 var(--dark-apple-red);
+}
+.selected-dark-red:hover {
+  color: var(--dark-apple-red);
+}
+
+/* Dark Yellow */
+.bgc-dark-yellow {
+  background-color: var(--dark-mikado-yellow);
+}
+.color-dark-yellow {
+  color: var(--dark-mikado-yellow);
+}
+.pulse-yellow {
+  background-image: radial-gradient(
+    var(--dark-mikado-yellow),
+    var(--mikado-yellow)
+  );
+  box-shadow: 0 0 0 0 var(--dark-mikado-yellow);
+}
+.selected-dark-yellow:hover {
+  color: var(--dark-mikado-yellow);
+}
+
+/* Light Pink */
+.bgc-light-pink {
+  background-color: var(--light-brick-pink);
+}
+
+/* Light Blue */
+.bgc-light-blue {
+  background-color: var(--light-blue-jeans);
+}
+
+/* Light Green */
+.bgc-light-green {
+  background-color: var(--light-ocean-green);
+}
+
+/* Light Purple */
+.bgc-light-purple {
+  background-color: var(--light-lavender);
+}
+
+/* Light Red */
+.bgc-light-red {
+  background-color: var(--light-apple-red);
+}
+
+/* Light Yellow */
+.bgc-light-yellow {
+  background-color: var(--light-mikado-yellow);
 }

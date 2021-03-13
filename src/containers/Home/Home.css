@@ -1,24 +1,20 @@
-:root {
-  --independence: #5d576a;
-  --light-independence: rgb(93, 87, 106, 0.5);
-  --brick-pink: #f8567b;
-}
-
 .home {
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.home-input-container {
-  margin-top: 30vh;
-  border-bottom: var(--brick-pink) solid 3px;
+.home .input-container {
+  margin: 30vh 0 30vh 0;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
   display: flex;
   align-items: center;
 }
 
-.home-input {
+.home .input {
   padding-bottom: 0.5em;
   width: 30vw;
   font-size: 2em;
@@ -27,7 +23,7 @@
   font-family: inherit;
 }
 
-.home-input::placeholder {
+.home .input::placeholder {
   color: var(--light-independence);
   font-family: inherit;
 }
@@ -42,20 +38,44 @@
   color: var(--independence);
 }
 
+.home .colors > p {
+  font-size: 1.6em;
+  color: var(--independence);
+  font-weight: 600;
+  text-align: center;
+}
+
+.home .color-circles {
+  display: flex;
+  justify-content: center;
+}
+
+.home .color-circles > div {
+  height: 5em;
+  width: 5em;
+  margin: 2em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.home .color-circles > div:hover {
+  transform: scale(1.2, 1.2);
+}
+
 @media (max-width: 1024px) {
-  .home-input {
+  .home .input {
     width: 50vw;
   }
 }
 
 @media (max-width: 768px) {
-  .home-input {
+  .home .input {
     width: 60vw;
   }
 }
 
 @media (max-width: 576px) {
-  .home-input {
+  .home .input {
     width: 70vw;
   }
 }
