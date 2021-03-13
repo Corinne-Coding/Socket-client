@@ -99,7 +99,7 @@ const ChatRoom = ({ userName, color }) => {
               <span>{userName ? userName : "Unknown"}</span>
               <em>, you are in room</em>
             </p>
-            <p>{roomId}</p>
+            <p className={"color-dark-" + color}>{roomId}</p>
           </div>
 
           <div className="informations-users">

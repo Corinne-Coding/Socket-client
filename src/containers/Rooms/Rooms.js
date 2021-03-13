@@ -49,8 +49,8 @@ const Rooms = ({ color }) => {
                 <p
                   className={
                     selectedRoom === index
-                      ? "selected-dark" + color + " color-dark-" + color
-                      : "selected-dark" + color
+                      ? "selected-dark-" + color
+                      : "selected-dark" + color + " hover-color-dark-" + color
                   }
                   key={index}
                   onClick={() => {
