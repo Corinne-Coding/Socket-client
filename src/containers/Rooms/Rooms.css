@@ -1,6 +1,8 @@
 .rooms {
   padding: 3vh 3rem 0 3rem;
   height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Scrolling menus + button */
@@ -30,7 +32,7 @@
 /* Scrolling menus content */
 .scrolling-menu-1 > .menu-list,
 .scrolling-menu-2 > .menu-list {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 .menu-list {
   display: flex;
@@ -40,7 +42,7 @@
 }
 .menu-list > p {
   padding: 0.6rem;
-  margin: 0.4rem 0;
+  margin: 0.8rem 0;
 }
 .menu-list > p:hover {
   cursor: pointer;
@@ -59,12 +61,12 @@
 .rooms input {
   padding: 0.4rem 0;
   width: 80%;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--independence);
   font-weight: 600;
   border-bottom-style: solid;
-  border-bottom-width: 0.2rem;
-  margin: 1rem 0;
+  border-bottom-width: 0.3rem;
+  margin: 2rem 0;
 }
 .rooms input::placeholder {
   color: var(--light-independence);

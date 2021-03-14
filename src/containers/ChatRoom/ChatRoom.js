@@ -8,9 +8,9 @@ import "./ChatRoom.css";
 import GoBackButton from "../../components/GoBackButton/GoBackButton";
 
 const ChatRoom = ({ userName, color }) => {
-  // console.log("Username in Chatroom =>", userName);
   const { roomId } = useParams();
   const socketRef = useRef();
+  const scrollRef = useRef();
 
   const [messageToSend, setMessageToSend] = useState("");
   const [allMessages, setAllMessages] = useState([]);
@@ -35,7 +35,6 @@ const ChatRoom = ({ userName, color }) => {
 
     // Receive new connection information
     socketRef.current.on("userConnection", (data) => {
-      // console.log(data);
       setAllMessages((allMessages) => [
         ...allMessages,
         {
@@ -47,7 +46,6 @@ const ChatRoom = ({ userName, color }) => {
 
     // Receive message
     socketRef.current.on("newChatMessage", (data) => {
-      // console.log(data);
       setAllMessages((allMessages) => [
         ...allMessages,
         {
@@ -65,6 +63,17 @@ const ChatRoom = ({ userName, color }) => {
       socketRef.current.disconnect();
     };
   }, [roomId, userName]);
+
+  // Automatic scroll in chat section
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
+  }, [allMessages]);
 
   // Send message
   const sendMessage = (event) => {
@@ -103,7 +112,11 @@ const ChatRoom = ({ userName, color }) => {
           </div>
 
           <div className="informations-users">
-            <p>Users connected</p>
+            <p>
+              {allUsers
+                ? allUsers.length + " users connected"
+                : "No user connected"}
+            </p>
             <div className="scrolling-list">
               {allUsers.map((item, index) => {
                 return (
@@ -121,10 +134,10 @@ const ChatRoom = ({ userName, color }) => {
         <div className="messages">
           {allMessages.length > 0 &&
             allMessages.map((item, index) => {
-              console.log(item);
               if (item.message) {
                 return (
                   <div
+                    ref={scrollRef}
                     className={
                       item.userId === socketRef.current.id
                         ? "message-bubble-owner"
@@ -152,7 +165,7 @@ const ChatRoom = ({ userName, color }) => {
                 );
               } else {
                 return (
-                  <p key={index} className="new-connection">
+                  <p key={index} className="new-connection" ref={scrollRef}>
                     {item.newConnection}
                   </p>
                 );

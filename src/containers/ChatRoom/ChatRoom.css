@@ -1,14 +1,19 @@
 .chat-room {
   display: flex;
+  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Left Column */
 .chat-room > div:first-child {
-  width: 30%;
+  width: 25%;
   height: 94vh;
   margin: 3vh 0rem 3vh 3rem;
   padding-left: 2rem;
 }
+
+/* Informations */
 .informations {
   height: calc(100% - 8.2rem);
 }
@@ -18,13 +23,13 @@
   box-sizing: border-box;
 }
 .informations-room > p:first-child {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .informations-room > p:first-child > span {
   font-weight: 600;
 }
 .informations-room > p:nth-child(2) {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   padding-top: 0.6rem;
   font-weight: 800;
 }
@@ -42,6 +47,7 @@
   margin-bottom: 1.4rem;
   font-weight: 600;
   color: var(--independence);
+  text-align: center;
 }
 .informations-users .scrolling-list {
   width: 100%;
@@ -54,7 +60,7 @@
   display: none;
 }
 .single-user {
-  width: 70%;
+  width: 75%;
   font-size: 1.6rem;
   padding: 0.6rem 1rem;
   margin-bottom: 1rem;
@@ -65,7 +71,7 @@
   text-align: center;
 }
 
-/* Chat Column */
+/* ----- Chat Column ------ */
 .chat-room .chat-col {
   width: 70%;
   height: 94vh;
@@ -78,9 +84,15 @@
 .messages {
   height: calc(100% - 9rem);
   box-sizing: border-box;
-  padding: 2rem 0;
-  overflow: hidden;
+  padding: 2rem 0 0 0;
+  overflow-y: scroll;
 }
+
+.messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chat input */
 .chat-room form {
   background-color: white;
   height: 5rem;
@@ -108,14 +120,14 @@
 .chat-room form input {
   flex: 1;
   border-radius: 1rem;
-  padding: 0.6rem 1rem;
-  font-size: 1.6rem;
+  padding: 1rem;
+  font-size: 2rem;
 }
 
+/* Message bubble */
 .message-bubble,
 .message-bubble-owner {
-  font-size: 1.4rem;
-  margin: 0 1rem 2rem 1rem;
+  padding: 0 1rem 2rem 1rem;
   display: flex;
 }
 .message-bubble-owner {
@@ -141,27 +153,27 @@
   align-items: center;
 }
 .message-bubble .sender-infos {
-  margin-right: 1rem;
+  margin-right: 1.4rem;
 }
 .message-bubble-owner .sender-infos {
-  margin-left: 1rem;
+  margin-left: 1.4rem;
 }
 .message-bubble .sender-infos > p:first-child,
 .message-bubble-owner .sender-infos > p:first-child {
   font-weight: 600;
   color: var(--independence);
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 .message-bubble .sender-infos > p:last-child,
 .message-bubble-owner .sender-infos > p:last-child {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--independence);
   padding-top: 0.5rem;
 }
 .message-bubble .msg,
 .message-bubble-owner .msg {
-  font-size: 1.2rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   border-radius: 1rem;
@@ -179,9 +191,10 @@
 
 .new-connection {
   font-size: 1.4rem;
-  color: var(--independence);
+  font-weight: 600;
+  color: var(--light-independence);
   text-align: end;
-  margin: 0 1rem 2rem 1rem;
+  margin: 2rem 1rem 2rem 2rem;
 }
 
 /* ---------------- */
