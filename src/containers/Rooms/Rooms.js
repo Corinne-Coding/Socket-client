@@ -37,6 +37,7 @@ const Rooms = ({ color }) => {
             variableBis={displayScrollingMenu2}
             setFunction={setDisplayScrollingMenu1}
             setFunctionBis={setDisplayScrollingMenu2}
+            text="Select a room"
           />
 
           <div
@@ -72,6 +73,7 @@ const Rooms = ({ color }) => {
             variableBis={displayScrollingMenu1}
             setFunction={setDisplayScrollingMenu2}
             setFunctionBis={setDisplayScrollingMenu1}
+            text="Create a room"
           />
 
           <div
@@ -92,7 +94,10 @@ const Rooms = ({ color }) => {
           </div>
         </div>
 
-        <Link to={`/${roomToNavigate}`} className="link">
+        <Link
+          to={roomToNavigate ? `/${roomToNavigate}` : undefined}
+          className="link"
+        >
           <div
             className={
               roomToNavigate ? "circle-btn pulse pulse-" + color : "circle-btn"

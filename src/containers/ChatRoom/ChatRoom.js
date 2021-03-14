@@ -19,7 +19,7 @@ const ChatRoom = ({ userName, color }) => {
   useEffect(() => {
     // Connection to WebSocket
     socketRef.current = socketIOClient(
-      "https://e9ec6458e634.ngrok.io" || "http://localhost:4000",
+      "https://c30ae5045a7c.ngrok.io" || "http://localhost:4000",
       {
         query: {
           roomId,

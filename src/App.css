@@ -1,3 +1,7 @@
+/* ---------------- */
+/* Colors codes */
+/* ---------------- */
+
 :root {
   /* Common grey */
   --independence: #5d576a;
@@ -10,7 +14,7 @@
   --light-brick-pink: #fadfe5;
 
   /* Green */
-  --dark-ocean-green: #25724d;
+  --dark-ocean-green: #2f7955;
   --ocean-green: #72ba9b;
   --light-ocean-green: #d5f2e3;
 
@@ -25,15 +29,39 @@
   --light-lavender: #daceeb;
 
   /* Red */
-  --dark-apple-red: #c70000;
-  --apple-red: #ff0102;
-  --light-apple-red: #ffbdbd;
+  --dark-apple-red: #ce0000;
+  --apple-red: #eb3636;
+  --light-apple-red: #facfcf;
 
   /* Yellow */
   --dark-mikado-yellow: #f7a709;
   --mikado-yellow: #ffc600;
   --light-mikado-yellow: #ffefb7;
 }
+
+/* ---------------- */
+/* Font size */
+/* ---------------- */
+
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+/* @media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+} */
+
+/* ---------------- */
+/* Global rules */
+/* ---------------- */
 
 body {
   font-family: "Rubik", sans-serif;
@@ -42,6 +70,7 @@ body {
 input {
   outline: none;
   border: none;
+  font-family: inherit;
 }
 
 /* ---------------- */

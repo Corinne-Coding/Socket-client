@@ -7,10 +7,11 @@ const ScrollingMenuTop = ({
   variableBis,
   setFunction,
   setFunctionBis,
+  text,
 }) => {
   return (
     <div className="scrolling-menu-top">
-      <p>Select a room</p>
+      <p>{text}</p>
       <i
         className={
           !variable

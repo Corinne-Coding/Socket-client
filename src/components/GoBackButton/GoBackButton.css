@@ -1,19 +1,19 @@
 .go-back {
-  border-bottom: 0.2em var(--extra-light-independence) solid;
+  border-bottom: 0.2rem var(--extra-light-independence) solid;
   display: flex;
   align-items: center;
-  height: 8em;
+  height: 8rem;
 }
 
 .go-back > .btn {
   background-color: var(--extra-light-independence);
-  height: 4em;
-  width: 4em;
+  height: 4rem;
+  width: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1em;
-  margin-right: 2em;
+  border-radius: 1rem;
+  margin-right: 2rem;
   cursor: pointer;
 }
 
@@ -22,13 +22,13 @@
 }
 
 .go-back > p {
-  font-size: 2em;
+  font-size: 2rem;
   color: var(--independence);
   font-weight: 600;
 }
 
 .go-back .fa-angle-left {
   color: var(--independence);
-  border-radius: 1em;
-  font-size: 3em;
+  border-radius: 1rem;
+  font-size: 3rem;
 }

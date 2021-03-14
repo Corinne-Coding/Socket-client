@@ -6,26 +6,26 @@
 .chat-room > div:first-child {
   width: 30%;
   height: 94vh;
-  margin: 3vh 0em 3vh 3em;
-  padding-left: 2em;
+  margin: 3vh 0rem 3vh 3rem;
+  padding-left: 2rem;
 }
 .informations {
-  height: calc(100% - 8.2em);
+  height: calc(100% - 8.2rem);
 }
 .informations-room {
-  padding-top: 3em;
-  min-height: 14em;
+  padding-top: 3rem;
+  min-height: 14rem;
   box-sizing: border-box;
 }
 .informations-room > p:first-child {
-  font-size: 2em;
+  font-size: 2rem;
 }
 .informations-room > p:first-child > span {
   font-weight: 600;
 }
 .informations-room > p:nth-child(2) {
-  font-size: 2.4em;
-  padding-top: 0.6em;
+  font-size: 2.4rem;
+  padding-top: 0.6rem;
   font-weight: 800;
 }
 .informations-room > p {
@@ -35,11 +35,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100% - 14em);
+  height: calc(100% - 14rem);
 }
 .informations-users > p {
-  font-size: 1.6em;
-  margin-bottom: 1.4em;
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
   font-weight: 600;
   color: var(--independence);
 }
@@ -55,10 +55,10 @@
 }
 .single-user {
   width: 70%;
-  font-size: 1.6em;
-  padding: 0.6em 1em;
-  margin-bottom: 1em;
-  border-radius: 0.4em;
+  font-size: 1.6rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.4rem;
   font-weight: 600;
 }
 .single-user p {
@@ -69,53 +69,53 @@
 .chat-room .chat-col {
   width: 70%;
   height: 94vh;
-  margin: 3vh 3em;
-  border-radius: 1em;
+  margin: 3vh 3rem;
+  border-radius: 1rem;
   background-color: var(--extra-light-independence);
   display: flex;
   flex-direction: column;
 }
 .messages {
-  height: calc(100% - 9em);
+  height: calc(100% - 9rem);
   box-sizing: border-box;
-  padding: 2em 0;
+  padding: 2rem 0;
   overflow: hidden;
 }
 .chat-room form {
   background-color: white;
-  height: 5em;
-  margin: 2em 2em;
+  height: 5rem;
+  margin: 2rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1em;
+  border-radius: 1rem;
 }
 .chat-room form .btn {
-  height: 4em;
-  width: 4em;
+  height: 4rem;
+  width: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1em;
-  margin: 0 1em;
+  border-radius: 1rem;
+  margin: 0 1rem;
   cursor: pointer;
 }
 .fa-angle-right {
-  border-radius: 1em;
-  font-size: 3em;
+  border-radius: 1rem;
+  font-size: 3rem;
   color: white;
 }
 .chat-room form input {
   flex: 1;
-  border-radius: 1em;
-  padding: 0.6em 1em;
-  font-size: 1.6em;
+  border-radius: 1rem;
+  padding: 0.6rem 1rem;
+  font-size: 1.6rem;
 }
 
 .message-bubble,
 .message-bubble-owner {
-  font-size: 1.4em;
-  margin: 0 1em 2em 1em;
+  font-size: 1.4rem;
+  margin: 0 1rem 2rem 1rem;
   display: flex;
 }
 .message-bubble-owner {
@@ -126,11 +126,11 @@
   display: flex;
 }
 .message-bubble > div {
-  margin-right: 8em;
+  margin-right: 8rem;
 }
 .message-bubble-owner > div {
   flex-direction: row-reverse;
-  margin-left: 8em;
+  margin-left: 8rem;
 }
 
 .message-bubble .sender-infos,
@@ -141,45 +141,61 @@
   align-items: center;
 }
 .message-bubble .sender-infos {
-  margin-right: 1em;
+  margin-right: 1rem;
 }
 .message-bubble-owner .sender-infos {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 .message-bubble .sender-infos > p:first-child,
 .message-bubble-owner .sender-infos > p:first-child {
   font-weight: 600;
   color: var(--independence);
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 .message-bubble .sender-infos > p:last-child,
 .message-bubble-owner .sender-infos > p:last-child {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--independence);
-  padding-top: 0.5em;
+  padding-top: 0.5rem;
 }
 .message-bubble .msg,
 .message-bubble-owner .msg {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
-  border-radius: 1em;
-  padding: 0.8em;
+  border-radius: 1rem;
+  padding: 0.8rem;
 }
 .message-bubble-owner .msg {
-  border-bottom-right-radius: 0em;
-  box-shadow: 3px 3px 3px 0.2px var(--light-independence);
+  border-bottom-right-radius: 0rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem 0.02rem var(--light-independence);
 }
 .message-bubble .msg {
-  border-bottom-left-radius: 0em;
+  border-bottom-left-radius: 0rem;
   background-color: white;
-  box-shadow: 4px 4px 4px 0.2px var(--light-independence);
+  box-shadow: 0.4rem 0.4rem 0.4rem 0.02rem var(--light-independence);
 }
 
 .new-connection {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   color: var(--independence);
   text-align: end;
-  margin: 0 1em 2em 1em;
+  margin: 0 1rem 2rem 1rem;
+}
+
+/* ---------------- */
+/* Media queries */
+/* ---------------- */
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 320px) {
 }
