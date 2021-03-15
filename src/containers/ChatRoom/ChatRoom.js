@@ -28,18 +28,30 @@ const ChatRoom = ({ userName, color }) => {
       }
     );
 
-    // Receive users list
+    // Receive users list when a new user is connected
     socketRef.current.on("usersList", (data) => {
       setAllUsers(data);
     });
 
-    // Receive new connection information
+    // Receive new connection information when a new user is connected (except the current user)
     socketRef.current.on("userConnection", (data) => {
       setAllMessages((allMessages) => [
         ...allMessages,
         {
           ...allMessages,
           newConnection: data.newConnection,
+        },
+      ]);
+    });
+
+    // Receive new disconnection information when a new user has disconnected
+    socketRef.current.on("userDisconnection", (data) => {
+      console.log(data);
+      setAllMessages((allMessages) => [
+        ...allMessages,
+        {
+          ...allMessages,
+          newDisconnection: data.newDisconnection,
         },
       ]);
     });
@@ -64,7 +76,7 @@ const ChatRoom = ({ userName, color }) => {
     };
   }, [roomId, userName]);
 
-  // Automatic scroll in chat section
+  // Automatic scroll in chat section when a new message is displayed
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({
@@ -75,7 +87,7 @@ const ChatRoom = ({ userName, color }) => {
     }
   }, [allMessages]);
 
-  // Send message
+  // Function to send message
   const sendMessage = (event) => {
     event.preventDefault();
     socketRef.current.emit("newChatMessage", {
@@ -86,12 +98,7 @@ const ChatRoom = ({ userName, color }) => {
     setMessageToSend("");
   };
 
-  // Display date
-  // const displayDate = (date) => {
-  //   return date.split("T", 1);
-  // };
-
-  // Display time
+  // Function to display time
   const displayTime = (date) => {
     const tab = date.split("T");
     return tab[1].split(".", 1);
@@ -137,6 +144,7 @@ const ChatRoom = ({ userName, color }) => {
           {allMessages.length > 0 &&
             allMessages.map((item, index) => {
               if (item.message) {
+                console.log("01");
                 return (
                   <div
                     ref={scrollRef}
@@ -166,10 +174,18 @@ const ChatRoom = ({ userName, color }) => {
                     </div>
                   </div>
                 );
-              } else {
+              } else if (item.newConnection) {
+                console.log("02");
                 return (
                   <p key={index} className="new-connection" ref={scrollRef}>
                     {item.newConnection}
+                  </p>
+                );
+              } else {
+                console.log("03");
+                return (
+                  <p key={index} className="new-connection" ref={scrollRef}>
+                    {item.newDisconnection}
                   </p>
                 );
               }

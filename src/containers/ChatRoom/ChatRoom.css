@@ -84,6 +84,9 @@
   display: flex;
   flex-direction: column;
 }
+.chat-room .chat-col::-webkit-scrollbar {
+  display: none;
+}
 
 /* Messages section */
 .messages {
@@ -176,7 +179,7 @@
 }
 .msg-bubble .msg,
 .msg-bubble-owner .msg {
-  font-size: 2rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   border-radius: 1rem;
