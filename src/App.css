@@ -39,6 +39,7 @@
   --light-mikado-yellow: #ffefb7;
 }
 
+
 /* ---------------- */
 /* Font size */
 /* ---------------- */
@@ -53,6 +54,7 @@ html {
   }
 }
 
+
 /* ---------------- */
 /* Global rules */
 /* ---------------- */
@@ -66,6 +68,7 @@ input {
   border: none;
   font-family: inherit;
 }
+
 
 /* ---------------- */
 /* Colors */

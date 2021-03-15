@@ -88,9 +88,9 @@
   font-weight: 600;
   font-size: 2rem;
   background-color: var(--light-independence);
-  cursor: pointer;
 }
 .pulse {
+  cursor: pointer;
   color: #fff;
   animation: pulsingCircle 1.8s infinite;
 }

@@ -19,7 +19,7 @@ const ChatRoom = ({ userName, color }) => {
   useEffect(() => {
     // Connection to WebSocket
     socketRef.current = socketIOClient(
-      "https://c30ae5045a7c.ngrok.io" || "http://localhost:4000",
+      "https://e02ddb4ae6d3.ngrok.io" || "http://localhost:4000",
       {
         query: {
           roomId,
@@ -113,9 +113,11 @@ const ChatRoom = ({ userName, color }) => {
 
           <div className="informations-users">
             <p>
-              {allUsers
-                ? allUsers.length + " users connected"
-                : "No user connected"}
+              {allUsers.length === 0
+                ? "No user connected"
+                : allUsers.length === 1
+                ? "1 user connected"
+                : allUsers.length + " users connected"}
             </p>
             <div className="scrolling-list">
               {allUsers.map((item, index) => {
@@ -140,15 +142,16 @@ const ChatRoom = ({ userName, color }) => {
                     ref={scrollRef}
                     className={
                       item.userId === socketRef.current.id
-                        ? "message-bubble-owner"
-                        : "message-bubble"
+                        ? "msg-bubble-owner"
+                        : "msg-bubble"
                     }
                     key={index}
                   >
                     <div>
                       <div className="sender-infos">
                         <p>
-                          {item.userName === userName
+                          {item.userName === userName &&
+                          item.userId === socketRef.current.id
                             ? "You"
                             : item.userName
                             ? item.userName

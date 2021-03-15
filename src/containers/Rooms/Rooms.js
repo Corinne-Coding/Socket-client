@@ -94,18 +94,17 @@ const Rooms = ({ color }) => {
           </div>
         </div>
 
-        <Link
-          to={roomToNavigate ? `/${roomToNavigate}` : undefined}
-          className="link"
-        >
-          <div
-            className={
-              roomToNavigate ? "circle-btn pulse pulse-" + color : "circle-btn"
-            }
-          >
+        {roomToNavigate ? (
+          <Link to={`/${roomToNavigate}`} className="link">
+            <div className={"circle-btn pulse pulse-" + color}>
+              <i className="fas fa-sign-in-alt"></i>
+            </div>
+          </Link>
+        ) : (
+          <div className="circle-btn">
             <i className="fas fa-sign-in-alt"></i>
           </div>
-        </Link>
+        )}
       </div>
     </div>
   );

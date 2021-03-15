@@ -85,3 +85,9 @@
     margin: 1rem;
   }
 }
+
+@media (max-width: 320px) {
+  .home .color-circles {
+    flex-wrap: wrap;
+  }
+}

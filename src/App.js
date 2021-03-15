@@ -40,8 +40,6 @@ export default App;
 
 To do : 
 
-- fix "you" in chatRoom
-
 - message for leaving user
 
 - user is typing

@@ -5,15 +5,16 @@
   margin: 0 auto;
 }
 
-/* Left Column */
+/* ----- Left Column ----- */
 .chat-room > div:first-child {
   width: 25%;
   height: 94vh;
   margin: 3vh 0rem 3vh 3rem;
   padding-left: 2rem;
+  box-sizing: border-box;
 }
 
-/* Informations */
+/* Informations about room */
 .informations {
   height: calc(100% - 8.2rem);
 }
@@ -36,6 +37,8 @@
 .informations-room > p {
   text-align: center;
 }
+
+/* Informations about users */
 .informations-users {
   display: flex;
   flex-direction: column;
@@ -81,13 +84,14 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Messages section */
 .messages {
   height: calc(100% - 9rem);
   box-sizing: border-box;
   padding: 2rem 0 0 0;
   overflow-y: scroll;
 }
-
 .messages::-webkit-scrollbar {
   display: none;
 }
@@ -125,70 +129,70 @@
 }
 
 /* Message bubble */
-.message-bubble,
-.message-bubble-owner {
+.msg-bubble,
+.msg-bubble-owner {
   padding: 0 1rem 2rem 1rem;
   display: flex;
 }
-.message-bubble-owner {
+.msg-bubble-owner {
   justify-content: flex-end;
 }
-.message-bubble > div,
-.message-bubble-owner > div {
+.msg-bubble > div,
+.msg-bubble-owner > div {
   display: flex;
 }
-.message-bubble > div {
+.msg-bubble > div {
   margin-right: 8rem;
 }
-.message-bubble-owner > div {
+.msg-bubble-owner > div {
   flex-direction: row-reverse;
   margin-left: 8rem;
 }
-
-.message-bubble .sender-infos,
-.message-bubble-owner .sender-infos {
+.msg-bubble .sender-infos,
+.msg-bubble-owner .sender-infos {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.message-bubble .sender-infos {
+.msg-bubble .sender-infos {
   margin-right: 1.4rem;
 }
-.message-bubble-owner .sender-infos {
+.msg-bubble-owner .sender-infos {
   margin-left: 1.4rem;
 }
-.message-bubble .sender-infos > p:first-child,
-.message-bubble-owner .sender-infos > p:first-child {
+.msg-bubble .sender-infos > p:first-child,
+.msg-bubble-owner .sender-infos > p:first-child {
   font-weight: 600;
   color: var(--independence);
   font-size: 1.6rem;
 }
-.message-bubble .sender-infos > p:last-child,
-.message-bubble-owner .sender-infos > p:last-child {
+.msg-bubble .sender-infos > p:last-child,
+.msg-bubble-owner .sender-infos > p:last-child {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--independence);
   padding-top: 0.5rem;
 }
-.message-bubble .msg,
-.message-bubble-owner .msg {
+.msg-bubble .msg,
+.msg-bubble-owner .msg {
   font-size: 2rem;
   display: flex;
   align-items: center;
   border-radius: 1rem;
   padding: 0.8rem;
 }
-.message-bubble-owner .msg {
+.msg-bubble-owner .msg {
   border-bottom-right-radius: 0rem;
   box-shadow: 0.3rem 0.3rem 0.3rem 0.02rem var(--light-independence);
 }
-.message-bubble .msg {
+.msg-bubble .msg {
   border-bottom-left-radius: 0rem;
   background-color: white;
   box-shadow: 0.4rem 0.4rem 0.4rem 0.02rem var(--light-independence);
 }
 
+/* New connection message */
 .new-connection {
   font-size: 1.4rem;
   font-weight: 600;
@@ -201,14 +205,49 @@
 /* Media queries */
 /* ---------------- */
 
-@media (max-width: 1024px) {
-}
-
 @media (max-width: 768px) {
-}
-
-@media (max-width: 480px) {
-}
-
-@media (max-width: 320px) {
+  .informations-users .scrolling-list {
+    display: none;
+  }
+  .chat-room {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .chat-room > div:first-child {
+    width: 100%;
+    height: auto;
+    margin: 0vh 0rem 0vh 0rem;
+    padding-left: 0rem;
+    padding: 1rem;
+  }
+  .chat-room .chat-col {
+    width: 100%;
+    height: auto;
+    flex: 1;
+    margin: 0vh 0rem;
+    overflow-y: scroll;
+    border-radius: 0rem;
+  }
+  .informations {
+    height: auto;
+  }
+  .informations-room {
+    padding: 1rem 0;
+    min-height: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  .informations-room > p:nth-child(2) {
+    font-size: 1.8rem;
+    padding-top: 0rem;
+    padding-left: 0.6rem;
+  }
+  .informations-users {
+    height: calc(100% - 14rem);
+    height: auto;
+  }
+  .informations-users > p {
+    margin-bottom: 0rem;
+  }
 }
