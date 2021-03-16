@@ -10,7 +10,15 @@ const ScrollingMenuTop = ({
   text,
 }) => {
   return (
-    <div className="scrolling-menu-top">
+    <div
+      className="scrolling-menu-top"
+      onClick={() => {
+        setFunction(!variable);
+        if (variableBis) {
+          setFunctionBis(false);
+        }
+      }}
+    >
       <p>{text}</p>
       <i
         className={
@@ -18,12 +26,6 @@ const ScrollingMenuTop = ({
             ? "fas fa-chevron-circle-down "
             : "fas fa-chevron-circle-up "
         }
-        onClick={() => {
-          setFunction(!variable);
-          if (variableBis) {
-            setFunctionBis(false);
-          }
-        }}
       ></i>
     </div>
   );

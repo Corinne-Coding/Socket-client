@@ -22,6 +22,7 @@ const Home = ({ userName, setUserName, color, setColor }) => {
   const redirect = (event) => {
     event.preventDefault();
     if (userName) {
+      setUserName(userName.trim());
       history.push("/rooms");
     }
   };
@@ -39,7 +40,7 @@ const Home = ({ userName, setUserName, color, setColor }) => {
             type="text"
             placeholder="Enter a user name"
             value={userName}
-            maxLength={20}
+            maxLength={13}
             onChange={handleUserNameChange}
           />
 

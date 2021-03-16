@@ -8,7 +8,6 @@ import GoBackButton from "../../components/GoBackButton/GoBackButton";
 import ScrollingMenuTop from "../../components/ScrollingMenuTop/ScrollingMenuTop";
 
 const Rooms = ({ color }) => {
-  console.log(color);
   const [displayScrollingMenu1, setDisplayScrollingMenu1] = useState(false);
   const [displayScrollingMenu2, setDisplayScrollingMenu2] = useState(false);
   const [roomName, setRoomName] = useState("");

@@ -35,13 +35,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-To do : 
-
-- message for leaving user
-
-- user is typing
-
-*/

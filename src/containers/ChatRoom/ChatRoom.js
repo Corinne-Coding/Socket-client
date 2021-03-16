@@ -15,15 +15,16 @@ const ChatRoom = ({ userName, color }) => {
   const [messageToSend, setMessageToSend] = useState("");
   const [allMessages, setAllMessages] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
+  const [typingUsers, setTypingUsers] = useState([]);
 
   useEffect(() => {
     // Connection to WebSocket
     socketRef.current = socketIOClient(
-      "https://e02ddb4ae6d3.ngrok.io" || "http://localhost:4000",
+      "https://6b34ceea107a.ngrok.io" || "http://localhost:4000",
       {
         query: {
           roomId,
-          userName: userName ? userName : "Unknown user",
+          userName: userName ? userName : "Unknown",
         },
       }
     );
@@ -46,7 +47,6 @@ const ChatRoom = ({ userName, color }) => {
 
     // Receive new disconnection information when a new user has disconnected
     socketRef.current.on("userDisconnection", (data) => {
-      console.log(data);
       setAllMessages((allMessages) => [
         ...allMessages,
         {
@@ -70,6 +70,11 @@ const ChatRoom = ({ userName, color }) => {
       ]);
     });
 
+    // Receive typing event
+    socketRef.current.on("isTyping", (data) => {
+      setTypingUsers(data);
+    });
+
     // Disconnection from WebSocket
     return () => {
       socketRef.current.disconnect();
@@ -90,6 +95,7 @@ const ChatRoom = ({ userName, color }) => {
   // Function to send message
   const sendMessage = (event) => {
     event.preventDefault();
+    isTyping(false);
     socketRef.current.emit("newChatMessage", {
       message: messageToSend,
       userId: socketRef.current.id,
@@ -102,6 +108,53 @@ const ChatRoom = ({ userName, color }) => {
   const displayTime = (date) => {
     const tab = date.split("T");
     return tab[1].split(".", 1);
+  };
+
+  // Function to emit typing event
+  const isTyping = (boolean) => {
+    if (boolean === true) {
+      socketRef.current.emit("isTyping", {
+        typing: true,
+        userId: socketRef.current.id,
+        userName: userName ? userName : "Unknown",
+      });
+    } else {
+      socketRef.current.emit("isTyping", {
+        typing: false,
+        userId: socketRef.current.id,
+        userName: userName ? userName : "Unknown",
+      });
+    }
+  };
+
+  // Function to display "... is typing"
+  const whoIsTyping = () => {
+    // Create tab with all typing userNames
+    let typingList = [];
+    if (typingUsers.length !== 0) {
+      for (let i = 0; i < typingUsers.length; i++) {
+        if (typingUsers[i].userId !== socketRef.current.id) {
+          typingList.push(typingUsers[i].userName);
+        }
+      }
+
+      // Return typing message
+      let str = "";
+      if (typingList.length === 1 && typingList[0] !== userName) {
+        str = `${typingList[0]} is typing...`;
+      } else if (typingList.length === 2) {
+        if (typingList[0] !== userName && typingList[1] !== userName) {
+          str = `${typingList[0]} and ${typingList[1]} are typing...`;
+        } else if (typingList[0] !== userName) {
+          str = `${typingList[0]} is typing...`;
+        } else {
+          str = `${typingList[1]} is typing...`;
+        }
+      } else if (typingList.length > 2) {
+        str = `Many users are typing...`;
+      }
+      return str;
+    }
   };
 
   return (
@@ -144,7 +197,6 @@ const ChatRoom = ({ userName, color }) => {
           {allMessages.length > 0 &&
             allMessages.map((item, index) => {
               if (item.message) {
-                console.log("01");
                 return (
                   <div
                     ref={scrollRef}
@@ -175,14 +227,12 @@ const ChatRoom = ({ userName, color }) => {
                   </div>
                 );
               } else if (item.newConnection) {
-                console.log("02");
                 return (
                   <p key={index} className="new-connection" ref={scrollRef}>
                     {item.newConnection}
                   </p>
                 );
               } else {
-                console.log("03");
                 return (
                   <p key={index} className="new-connection" ref={scrollRef}>
                     {item.newDisconnection}
@@ -191,10 +241,16 @@ const ChatRoom = ({ userName, color }) => {
               }
             })}
         </div>
+
+        <div className="typing">
+          <p>{whoIsTyping()}</p>
+        </div>
+
         <form onSubmit={sendMessage}>
           <input
             onChange={(event) => {
               setMessageToSend(event.target.value);
+              isTyping(true);
             }}
             value={messageToSend}
           />

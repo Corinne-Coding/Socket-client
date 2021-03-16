@@ -44,6 +44,8 @@
 .menu-list > p {
   padding: 0.6rem;
   margin: 0.8rem 0;
+  width: 50%;
+  text-align: center;
 }
 .menu-list > p:hover {
   cursor: pointer;
