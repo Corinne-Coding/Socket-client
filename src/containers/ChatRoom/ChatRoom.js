@@ -250,7 +250,12 @@ const ChatRoom = ({ userName, color }) => {
           <input
             onChange={(event) => {
               setMessageToSend(event.target.value);
-              isTyping(true);
+              console.log(event.target.value);
+              if (event.target.value) {
+                isTyping(true);
+              } else {
+                isTyping(false);
+              }
             }}
             value={messageToSend}
           />
