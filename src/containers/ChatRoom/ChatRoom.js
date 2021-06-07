@@ -105,9 +105,9 @@ const ChatRoom = ({ userName, color }) => {
   };
 
   // Function to display time
-  const displayTime = (date) => {
-    const tab = date.split("T");
-    return tab[1].split(".", 1);
+  const displayTime = () => {
+    const date = new Date();
+    return date.toLocaleTimeString();
   };
 
   // Function to emit typing event
