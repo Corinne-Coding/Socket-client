@@ -49,7 +49,10 @@ const Home = ({ userName, setUserName, color, setColor }) => {
       </div>
 
       <div className="colors">
-        <p>Don't like {color} ? Choose another color</p>
+        <p>
+          Don't like <span className={`color-${color}`}>{color}</span> ? Choose
+          another color
+        </p>
         <div className="color-circles">
           {colorPallet.map((item) => {
             if (item !== color) {
