@@ -24,7 +24,7 @@ const ChatRoom = ({ userName, color }) => {
       {
         query: {
           roomId,
-          userName: userName ? userName : "Unknown",
+          userName,
         },
       }
     );
@@ -116,13 +116,13 @@ const ChatRoom = ({ userName, color }) => {
       socketRef.current.emit("isTyping", {
         typing: true,
         userId: socketRef.current.id,
-        userName: userName ? userName : "Unknown",
+        userName,
       });
     } else {
       socketRef.current.emit("isTyping", {
         typing: false,
         userId: socketRef.current.id,
-        userName: userName ? userName : "Unknown",
+        userName,
       });
     }
   };
@@ -165,7 +165,7 @@ const ChatRoom = ({ userName, color }) => {
         <div className="informations">
           <div className="informations-room">
             <p>
-              <span>{userName ? userName : "Unknown"}</span>
+              <span>{userName}</span>
               <em>, you are in room</em>
             </p>
             <p className={"color-dark-" + color}>{roomId}</p>
@@ -213,9 +213,7 @@ const ChatRoom = ({ userName, color }) => {
                           {item.userName === userName &&
                           item.userId === socketRef.current.id
                             ? "You"
-                            : item.userName
-                            ? item.userName
-                            : "Unknown"}
+                            : item.userName}
                         </p>
                         <p>{displayTime(item.date)}</p>
                       </div>

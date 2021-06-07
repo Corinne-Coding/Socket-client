@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import "./App.css";
 import Home from "./containers/Home/Home";
@@ -23,11 +28,19 @@ function App() {
         </Route>
 
         <Route exact path="/rooms">
-          <Rooms userName={userName} color={color} />
+          {userName ? (
+            <Rooms userName={userName} color={color} />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         <Route exact path="/:roomId">
-          <ChatRoom userName={userName} color={color} />
+          {userName ? (
+            <ChatRoom userName={userName} color={color} />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
       </Switch>
     </Router>
