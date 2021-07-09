@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+<h1 align="center">Chat App</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img width="800" alt="Chat App Project" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app.gif" />
+</p>
 
-## Available Scripts
+<p align="center">A chat web application built with <strong>React and Socket.IO</strong>.</p>
 
-In the project directory, you can run:
+<br />
 
-### `yarn start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow this link to try my project : <a href="https://socket-io-client-corinne.netlify.app/">https://socket-io-client-corinne.netlify.app/</a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br />
 
-### `yarn test`
+## About this project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Chat Project is a **fullstack** project made in early 2021.
 
-### `yarn build`
+If you want to take a look at the **backend project** (Node.js server), follow this link : [Chat app express API](https://github.com/Corinne-Coding/Socket-server)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Packages & libraries used :**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [axios](https://www.npmjs.com/package/axios)
+- [socket.io-client] (https://socket.io/docs/v3/client-api/index.html)
 
-### `yarn eject`
+<br />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshots
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Home page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Choose a nickname and your favorite color :
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p align="center" >
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-01.png" alt="screenshot-01" />
+</p>
 
-## Learn More
+<br />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<hr width="200px" align="center"  />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br />
 
-### Code Splitting
+### Rooms page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Choose a room (personalized or not) :
 
-### Analyzing the Bundle Size
+<p align="center" >
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-02" />
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br />
 
-### Making a Progressive Web App
+<p align="center" >
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-03" />
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br />
 
-### Advanced Configuration
+<hr width="200px" align="center"  />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br />
 
-### Deployment
+### ChatRoom page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Enjoy the chat experience !
 
-### `yarn build` fails to minify
+<p align="center" >
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-04" />
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br />
+
+<p align="center" >
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-05" />
+</p>
+
+<br />
+
+<hr width="200px" align="center"  />
+
+<br />
