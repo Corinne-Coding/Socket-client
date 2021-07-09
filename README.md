@@ -56,7 +56,7 @@ Choose a room (personalized or not) :
 <br />
 
 <p align="center" >
-<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-03" />
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-03.png" alt="screenshot-03" />
 </p>
 
 <br />
@@ -70,13 +70,13 @@ Choose a room (personalized or not) :
 Enjoy the chat experience !
 
 <p align="center" >
-<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-04" />
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-04.png" alt="screenshot-04" />
 </p>
 
 <br />
 
 <p align="center" >
-<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-02.png" alt="screenshot-05" />
+<img width="800" src="https://github.com/Corinne-Coding/Socket-client/blob/main/src/preview/chat-app-05.png" alt="screenshot-05" />
 </p>
 
 <br />

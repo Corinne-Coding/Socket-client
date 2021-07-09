@@ -58,6 +58,7 @@ const ChatRoom = ({ userName, color }) => {
 
     // Receive message
     socketRef.current.on("newChatMessage", (data) => {
+      console.log(data);
       setAllMessages((allMessages) => [
         ...allMessages,
         {
@@ -105,9 +106,11 @@ const ChatRoom = ({ userName, color }) => {
   };
 
   // Function to display time
-  const displayTime = () => {
-    const date = new Date();
-    return date.toLocaleTimeString();
+  const displayTime = (date) => {
+    const tab = date.split(":");
+    const hour = String(Number(tab[0]) + 2);
+    tab[0] = hour;
+    return tab.join(":");
   };
 
   // Function to emit typing event
@@ -248,7 +251,6 @@ const ChatRoom = ({ userName, color }) => {
           <input
             onChange={(event) => {
               setMessageToSend(event.target.value);
-              console.log(event.target.value);
               if (event.target.value) {
                 isTyping(true);
               } else {
