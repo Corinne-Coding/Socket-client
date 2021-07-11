@@ -25,7 +25,7 @@ If you want to take a look at the **backend project** (Node.js server), follow t
 **Packages & libraries used :**
 
 - [axios](https://www.npmjs.com/package/axios)
-- [socket.io-client] (https://socket.io/docs/v3/client-api/index.html)
+- [socket.io-client](https://socket.io/docs/v3/client-api/index.html)
 
 <br />
 
