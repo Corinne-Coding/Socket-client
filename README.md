@@ -80,7 +80,3 @@ Enjoy the chat experience !
 </p>
 
 <br />
-
-<hr width="200px" align="center"  />
-
-<br />
