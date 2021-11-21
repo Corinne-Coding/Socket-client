@@ -20,7 +20,7 @@ const ChatRoom = ({ userName, color }) => {
   useEffect(() => {
     // Connection to WebSocket
     socketRef.current = socketIOClient(
-      "https://socket-io-express-server.herokuapp.com/",
+      "https://socket-server-new-dynos.herokuapp.com/",
       {
         query: {
           roomId,
