@@ -108,7 +108,8 @@ const ChatRoom = ({ userName, color }) => {
   // Function to display time
   const displayTime = (date) => {
     const tab = date.split(":");
-    const hour = String(Number(tab[0]) + 2);
+    // Receiving Heroku time (not french time) so we must add 1 or 2 hours
+    const hour = String(Number(tab[0]) + 1);
     tab[0] = hour;
     return tab.join(":");
   };
